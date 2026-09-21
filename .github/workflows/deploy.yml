@@ -22,24 +22,24 @@ jobs:
 
       - name: Package and Deploy createOrder
         run: |
-          cd lambdas/cmtr_9ped0fct_lambda_createOrder
-          zip -r function.zip .
+          cd lambdas
+          zip -r createOrder.zip cmtr_9ped0fct_lambda_createOrder/
           aws lambda update-function-code \
             --function-name cmtr_9ped0fct_lambda_createOrder \
-            --zip-file fileb://function.zip
+            --zip-file fileb://createOrder.zip
 
       - name: Package and Deploy reserveStock
         run: |
-          cd lambdas/cmtr_9ped0fct_lambda_reserveStock
-          zip -r function.zip .
+          cd lambdas
+          zip -r reserveStock.zip cmtr_9ped0fct_lambda_reserveStock/
           aws lambda update-function-code \
             --function-name cmtr_9ped0fct_lambda_reserveStock \
-            --zip-file fileb://function.zip
+            --zip-file fileb://reserveStock.zip
 
       - name: Package and Deploy sendNotification
         run: |
-          cd lambdas/cmtr_9ped0fct_lambda_sendNotification
-          zip -r function.zip .
+          cd lambdas
+          zip -r sendNotification.zip cmtr_9ped0fct_lambda_sendNotification/
           aws lambda update-function-code \
             --function-name cmtr_9ped0fct_lambda_sendNotification \
-            --zip-file fileb://function.zip
+            --zip-file fileb://sendNotification.zip
